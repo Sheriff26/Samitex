@@ -12,6 +12,7 @@ import android.widget.Toast;
 public class DashboardActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button btnScan;
+    private Button btnCounter;
     final String TAG = this.getClass().getName();
 
     @Override
@@ -22,6 +23,9 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         btnScan = findViewById(R.id.btn_scan);
         btnScan.setOnClickListener(this);
 
+        btnCounter = findViewById(R.id.btn_counter);
+        btnCounter.setOnClickListener(this);
+
     }
 
     @Override
@@ -30,6 +34,11 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
             case R.id.btn_scan:
                 Intent loginIntent = new Intent(DashboardActivity.this, ScanDataActivity.class);
                 startActivity(loginIntent);
+                break;
+
+            case R.id.btn_counter:
+                Intent counterIntent = new Intent(DashboardActivity.this, CountListActivity.class);
+                startActivity(counterIntent);
                 break;
         }
     }
