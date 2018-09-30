@@ -7,11 +7,16 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.google.zxing.integration.android.IntentIntegrator;
+
+import java.text.DateFormat;
+import java.util.Calendar;
 
 public class ScanDataActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -25,6 +30,14 @@ public class ScanDataActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_data);
+
+        Calendar calendar = Calendar.getInstance();
+        String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+
+        EditText etDate = findViewById(R.id.et_tanggal);
+        etDate.setText(currentDate);
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         imgScanner = findViewById(R.id.img_scanner);
         imgScanner.setOnClickListener(this);
@@ -76,12 +89,14 @@ public class ScanDataActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Bitmap bitmap = (Bitmap)data.getExtras().get("data");
-        tampilFoto.setImageBitmap(bitmap);
-    }
+        if(resultCode == RESULT_OK){
+            switch (requestCode){
+                case 0 :
+                    Bitmap bitmap = (Bitmap)data.getExtras().get("data");
+                    tampilFoto.setImageBitmap(bitmap);
+                break;
+            }
+        }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
     }
 }
