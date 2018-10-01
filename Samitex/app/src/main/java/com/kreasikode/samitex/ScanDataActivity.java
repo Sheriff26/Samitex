@@ -41,17 +41,14 @@ public class ScanDataActivity extends AppCompatActivity implements View.OnClickL
 
         imgScanner = findViewById(R.id.img_scanner);
         imgScanner.setOnClickListener(this);
-
         btnSimpanData = findViewById(R.id.btn_simpan_data);
         btnSimpanData.setOnClickListener(this);
-
         btnBackDashboard = findViewById(R.id.back_icon);
         btnBackDashboard.setOnClickListener(this);
-
-        tampilFoto = findViewById(R.id.tampil_foto);
-
         btnTakePicture = findViewById(R.id.img_btn_take_photo);
         btnTakePicture.setOnClickListener(this);
+
+        tampilFoto = findViewById(R.id.tampil_foto);
 
     }
 
@@ -63,7 +60,6 @@ public class ScanDataActivity extends AppCompatActivity implements View.OnClickL
                 scannerIntegrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
                 scannerIntegrator.setPrompt("Scanner");
                 scannerIntegrator.setCameraId(0);
-                scannerIntegrator.setOrientationLocked(false);
                 scannerIntegrator.setBeepEnabled(true);
                 scannerIntegrator.setBarcodeImageEnabled(true);
                 scannerIntegrator.initiateScan();
