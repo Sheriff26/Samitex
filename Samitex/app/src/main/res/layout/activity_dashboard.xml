@@ -71,7 +71,7 @@
             android:layout_height="130dp"
             android:layout_margin="20dp"
             android:background="@drawable/btn_dashboard"
-            android:text="Foto File"
+            android:text="Profile"
             android:textColor="@color/colorWhite"
             android:textSize="26sp"
             app:layout_constraintBottom_toBottomOf="parent"

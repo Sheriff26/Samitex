@@ -17,8 +17,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingRight="15dp"
-            android:paddingEnd="15dp">
+            android:paddingEnd="15dp"
+            android:paddingRight="15dp">
 
             <ImageView
                 android:id="@+id/back_icon"
@@ -37,13 +37,6 @@
                 android:textColor="@color/colorWhite"
                 android:textSize="23dp" />
 
-            <ImageView
-                android:id="@+id/img_scanner"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_qr_code"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"/>
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 
@@ -89,14 +82,30 @@
                     android:textSize="20sp"
                     app:layout_constraintTop_toBottomOf="@id/et_tanggal" />
 
-                <EditText
-                    android:id="@+id/et_no_mesin"
+                <LinearLayout
+                    android:id="@+id/layout_mesin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:singleLine="true"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_no_mesin" />
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_no_mesin">
+
+                    <EditText
+                        android:id="@+id/et_no_mesin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.9"
+                        android:singleLine="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/img_scanner"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="0.1"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_qr_code" />
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/tv_shift"
@@ -105,7 +114,7 @@
                     android:text="Shift"
                     android:textColor="@color/colorBlack"
                     android:textSize="20sp"
-                    app:layout_constraintTop_toBottomOf="@id/et_no_mesin" />
+                    app:layout_constraintTop_toBottomOf="@id/layout_mesin" />
 
                 <EditText
                     android:id="@+id/et_shift"
@@ -165,10 +174,10 @@
                     android:id="@+id/et_catatan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:focusableInTouchMode="true"
+                    android:singleLine="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:singleLine="true"
-                    android:focusableInTouchMode="true"
                     app:layout_constraintTop_toBottomOf="@+id/tv_catatan" />
 
                 <TextView
@@ -185,9 +194,9 @@
                     android:id="@+id/img_btn_take_photo"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="70dp"
                     android:layout_marginStart="70dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="10dp"
                     android:src="@drawable/baseline_add_a_photo_black_48dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/et_catatan" />
@@ -196,12 +205,12 @@
                     android:id="@+id/tampil_foto"
                     android:layout_width="100dp"
                     android:layout_height="120dp"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="190dp"
+                    android:layout_marginTop="10dp"
                     android:src="@mipmap/ic_launcher"
                     app:layout_constraintStart_toEndOf="@id/img_btn_take_photo"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/et_catatan"/>
+                    app:layout_constraintTop_toBottomOf="@id/et_catatan" />
 
                 <Button
                     android:id="@+id/btn_simpan_data"

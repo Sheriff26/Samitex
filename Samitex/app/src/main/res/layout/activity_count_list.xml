@@ -33,7 +33,7 @@
             android:layout_height="wrap_content" />
 
     </android.support.v7.widget.Toolbar>
-
+<!--
     <ImageView
         android:id="@+id/img_profile"
         android:layout_width="90dp"
@@ -52,7 +52,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
-        android:text="Dono"
+        android:text="Counter"
         android:textAlignment="center"
         android:textSize="20sp"
         android:singleLine="true"
@@ -113,5 +113,6 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_jml_counter"/>
+-->
 
 </android.support.constraint.ConstraintLayout>
