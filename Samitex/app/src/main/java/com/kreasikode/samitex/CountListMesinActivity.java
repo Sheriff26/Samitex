@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
-public class CountListActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
+public class CountListMesinActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener  {
 
     private ImageView btnBack;
     private Spinner spinner;
@@ -17,13 +17,14 @@ public class CountListActivity extends AppCompatActivity implements View.OnClick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_count_list);
+        setContentView(R.layout.activity_count_list_mesin);
 
         spinner = findViewById(R.id.spinner);
-        ArrayAdapter<String>myadapter = new ArrayAdapter<String>(CountListActivity.this,
+        ArrayAdapter<String> myadapter = new ArrayAdapter<String>(CountListMesinActivity.this,
                 android.R.layout.simple_expandable_list_item_1,getResources().getStringArray(R.array.Spinner));
         myadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(myadapter);
+        spinner.setSelection(myadapter.getPosition("Mesin"));
         spinner.setOnItemSelectedListener(this);
 
         btnBack = findViewById(R.id.back_icon);
@@ -33,26 +34,24 @@ public class CountListActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
-
         switch (v.getId()){
             case R.id.back_icon:
-                Intent dashboardIntent = new Intent(CountListActivity.this, DashboardActivity.class);
+                Intent dashboardIntent = new Intent(CountListMesinActivity.this, DashboardActivity.class);
                 dashboardIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(dashboardIntent);
                 break;
         }
-
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
         if (position == 0){
+            startActivity(new Intent(CountListMesinActivity.this, CountListActivity.class));
 
         } else {
-            startActivity(new Intent(CountListActivity.this, CountListMesinActivity.class));
-        }
 
+        }
     }
 
     @Override
@@ -62,7 +61,7 @@ public class CountListActivity extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onBackPressed() {
-        Intent dashboardIntent = new Intent(CountListActivity.this, DashboardActivity.class);
+        Intent dashboardIntent = new Intent(CountListMesinActivity.this, DashboardActivity.class);
         dashboardIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(dashboardIntent);
     }

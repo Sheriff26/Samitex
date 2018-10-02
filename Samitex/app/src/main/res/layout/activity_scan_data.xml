@@ -63,85 +63,129 @@
                     android:textSize="20sp"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <EditText
-                    android:id="@+id/et_tanggal"
+                <LinearLayout
+                    android:id="@+id/layout_tanggal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:singleLine="true"
-                    android:textColor="@color/colorGrey"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_tanggal" />
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/tv_tanggal">
 
-                <TextView
-                    android:id="@+id/tv_no_mesin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="No.Mesin"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="20sp"
-                    app:layout_constraintTop_toBottomOf="@id/et_tanggal" />
+                    <EditText
+                        android:id="@+id/et_tanggal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.9"
+                        android:singleLine="true"
+                        android:textColor="@color/colorGrey" />
+
+                    <ImageView
+                        android:id="@+id/img_scanner"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="0.1"
+                        android:src="@drawable/ic_qr_code" />
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/layout_mesin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_no_mesin">
+                    app:layout_constraintTop_toBottomOf="@+id/layout_tanggal">
+
+                    <TextView
+                        android:id="@+id/tv_no_mesin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="No.Mesin"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/tv_shift"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.45"
+                        android:text="Shift"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/layout_mesin">
 
                     <EditText
                         android:id="@+id/et_no_mesin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.9"
-                        android:singleLine="true"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" />
+                        android:layout_weight="1"
+                        android:singleLine="true" />
 
-                    <ImageView
-                        android:id="@+id/img_scanner"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_weight="0.1"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/ic_qr_code" />
+                    <EditText
+                        android:id="@+id/et_shift"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:singleLine="true"
+                        android:verticalScrollbarPosition="right"/>
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/tv_shift"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Shift"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="20sp"
-                    app:layout_constraintTop_toBottomOf="@id/layout_mesin" />
-
-                <EditText
-                    android:id="@+id/et_shift"
+                <LinearLayout
+                    android:id="@+id/layout_operator"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:singleLine="true"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_shift" />
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/layout_et">
 
-                <TextView
-                    android:id="@+id/tv_operator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Operator"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="20sp"
-                    app:layout_constraintTop_toBottomOf="@id/et_shift" />
+                    <TextView
+                        android:id="@+id/tv_operator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Operator"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        app:layout_constraintTop_toBottomOf="@id/layout_et" />
 
-                <EditText
-                    android:id="@+id/et_operator"
+                    <TextView
+                        android:id="@+id/tv_Group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Group"
+                        android:layout_weight="1.2"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_et_oprator"
+                    app:layout_constraintTop_toBottomOf="@id/layout_operator"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:singleLine="true"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_operator" />
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/et_operator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:id="@+id/et_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:singleLine="true"/>
+
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/tv_jumlah_couter"
@@ -150,7 +194,7 @@
                     android:text="Jumlah Counter"
                     android:textColor="@color/colorBlack"
                     android:textSize="20sp"
-                    app:layout_constraintTop_toBottomOf="@id/et_operator" />
+                    app:layout_constraintTop_toBottomOf="@id/layout_et_oprator" />
 
                 <EditText
                     android:id="@+id/et_jumlah_counter"
@@ -217,7 +261,7 @@
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="100dp"
-                    android:layout_marginBottom="80dp"
+                    android:layout_marginBottom="20dp"
                     android:background="@drawable/btn_dashboard"
                     android:text="Konfirmasi"
                     android:textAllCaps="false"
