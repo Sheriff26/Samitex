@@ -1,14 +1,18 @@
 package com.kreasikode.samitex;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -24,6 +28,8 @@ public class ScanDataActivity extends AppCompatActivity implements View.OnClickL
     private Button btnSimpanData;
     private ImageView btnBackDashboard;
     ImageView tampilFoto;
+    private EditText etTanggal;
+    private DatePickerDialog.OnDateSetListener mDateSetListener;
     private ImageButton btnTakePicture;
 
     @Override
@@ -31,11 +37,33 @@ public class ScanDataActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_data);
 
-        Calendar calendar = Calendar.getInstance();
-        String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+        etTanggal = findViewById(R.id.et_tanggal);
+        etTanggal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
 
-        EditText etDate = findViewById(R.id.et_tanggal);
-        etDate.setText(currentDate);
+                DatePickerDialog dialog = new DatePickerDialog(
+                        ScanDataActivity.this,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        mDateSetListener,
+                        year,month,day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
+
+        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int day) {
+                month = month + 1;
+                String date = day + " / " + month + " / " + year;
+                etTanggal.setText(date);
+            }
+        };
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 

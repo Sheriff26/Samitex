@@ -202,6 +202,8 @@
                     android:inputType="numberDecimal"
                     android:singleLine="true"
                     android:textSize="30sp"
+                    android:background="@drawable/round"
+                    android:padding="12dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_jumlah_couter" />
