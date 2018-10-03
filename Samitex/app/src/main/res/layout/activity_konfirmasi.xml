@@ -130,54 +130,31 @@
                                 app:layout_constraintTop_toBottomOf="@id/tv_konfirmasi_tanggal" />
                 -->
                 <TextView
-                    android:id="@+id/tv_operator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="Operator"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="20sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_konfirmasi_tanggal" />
-
-                <TextView
                     android:id="@+id/tv_nama_operator"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="100dp"
-                    android:layout_marginLeft="100dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="18dp"
                     android:singleLine="true"
                     android:text="Group A - Dono"
                     android:textColor="@color/colorBlack"
                     android:textSize="20sp"
+                    android:textAlignment="center"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/tv_operator"
                     app:layout_constraintTop_toBottomOf="@id/tv_konfirmasi_tanggal" />
 
-                <TextView
-                    android:id="@+id/tv_counter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="27dp"
-                    android:text="Counter"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="20sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_operator" />
 
                 <TextView
                     android:id="@+id/tv_jumlah_couter"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="100dp"
-                    android:layout_marginLeft="100dp"
-                    android:layout_marginTop="20dp"
                     android:singleLine="true"
                     android:text="1200"
+                    android:layout_marginTop="18dp"
                     android:textStyle="bold"
+                    android:textAlignment="center"
                     android:textColor="@color/colorBlack"
-                    android:textSize="28sp"
+                    android:textSize="30sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/tv_counter"
                     app:layout_constraintTop_toBottomOf="@id/tv_nama_operator" />
@@ -191,7 +168,7 @@
                     android:textColor="@color/colorBlack"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_counter" />
+                    app:layout_constraintTop_toBottomOf="@id/tv_jumlah_couter" />
 
                 <TextView
                     android:id="@+id/tv_konfirmasi_catatan"
