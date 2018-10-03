@@ -2,6 +2,8 @@ package com.kreasikode.samitex;
 
 import android.content.Intent;
 import android.os.Handler;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +22,8 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
     private Button btnCounter;
     private Toolbar topToolbar;
     private DrawerLayout mdrawerlayout;
+    private NavigationView navigationView;
+    private ImageView imgMenu;
     final String TAG = this.getClass().getName();
 
     @Override
@@ -27,8 +31,10 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        imgMenu = findViewById(R.id.menu_icon);
         mdrawerlayout = findViewById(R.id.drawer_layout);
         topToolbar = findViewById(R.id.toolbar_layout);
+        navigationView = findViewById(R.id.nav_view);
 
         btnScan = findViewById(R.id.btn_scan);
         btnScan.setOnClickListener(this);
@@ -36,6 +42,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         btnCounter.setOnClickListener(this);
 
     }
+
 
     @Override
     public void onClick(View v) {
@@ -49,6 +56,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
                 Intent counterIntent = new Intent(DashboardActivity.this, CountListActivity.class);
                 startActivity(counterIntent);
                 break;
+
         }
     }
 

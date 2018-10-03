@@ -78,18 +78,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_konfirmasi" />
 
-                <!--
-                <TextView
-                    android:id="@+id/tv_tanggal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:text="Tanggal"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="20sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_kode_mesin" />
-                -->
                 <TextView
                     android:id="@+id/tv_konfirmasi_tanggal"
                     android:layout_width="match_parent"
@@ -102,33 +90,7 @@
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_kode_mesin" />
-                <!--
-                            <TextView
-                                android:id="@+id/tv_shift"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:text="Shift"
-                                android:textColor="@color/colorBlack"
-                                android:textSize="20sp"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/tv_konfirmasi_tanggal" />
 
-                            <TextView
-                                android:id="@+id/tv_jenis_shift"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="100dp"
-                                android:layout_marginLeft="100dp"
-                                android:layout_marginTop="20dp"
-                                android:singleLine="true"
-                                android:text="Pagi (6-14)"
-                                android:textColor="@color/colorBlack"
-                                android:textSize="20sp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@id/tv_shift"
-                                app:layout_constraintTop_toBottomOf="@id/tv_konfirmasi_tanggal" />
-                -->
                 <TextView
                     android:id="@+id/tv_nama_operator"
                     android:layout_width="match_parent"

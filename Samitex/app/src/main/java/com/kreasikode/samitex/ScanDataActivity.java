@@ -27,7 +27,7 @@ public class ScanDataActivity extends AppCompatActivity implements View.OnClickL
     private ImageView imgScanner;
     private Button btnSimpanData;
     private ImageView btnBackDashboard;
-    ImageView tampilFoto;
+    private ImageView tampilFoto;
     private EditText etTanggal;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     private ImageButton btnTakePicture;
@@ -50,7 +50,7 @@ public class ScanDataActivity extends AppCompatActivity implements View.OnClickL
                         ScanDataActivity.this,
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         mDateSetListener,
-                        year,month,day);
+                        year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
@@ -82,7 +82,7 @@ public class ScanDataActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.img_scanner:
                 IntentIntegrator scannerIntegrator = new IntentIntegrator(ScanDataActivity.this);
                 scannerIntegrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
@@ -106,19 +106,19 @@ public class ScanDataActivity extends AppCompatActivity implements View.OnClickL
 
             case R.id.img_btn_take_photo:
                 Intent takePhotoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(takePhotoIntent,0);
+                startActivityForResult(takePhotoIntent, 0);
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == RESULT_OK){
-            switch (requestCode){
-                case 0 :
-                    Bitmap bitmap = (Bitmap)data.getExtras().get("data");
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case 0:
+                    Bitmap bitmap = (Bitmap) data.getExtras().get("data");
                     tampilFoto.setImageBitmap(bitmap);
-                break;
+                    break;
             }
         }
 
