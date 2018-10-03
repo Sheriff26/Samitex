@@ -32,7 +32,6 @@
         <activity
             android:name=".CountListActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".CountListMesinActivity"></activity>
     </application>
 
 </manifest>

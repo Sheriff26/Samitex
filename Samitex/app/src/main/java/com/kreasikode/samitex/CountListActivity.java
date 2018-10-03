@@ -13,19 +13,11 @@ public class CountListActivity extends AppCompatActivity implements View.OnClick
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private ViewPagerAdapter adapter;
-    //private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_count_list);
-
-        //spinner = findViewById(R.id.spinner);
-        //ArrayAdapter<String>myadapter = new ArrayAdapter<String>(CountListActivity.this,
-        //        android.R.layout.simple_expandable_list_item_1,getResources().getStringArray(R.array.Spinner));
-        //myadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //spinner.setAdapter(myadapter);
-        //spinner.setOnItemSelectedListener(this);
 
         tabLayout = findViewById(R.id.tablayout_id);
         viewPager = findViewById(R.id.viewpager_id);
@@ -53,22 +45,6 @@ public class CountListActivity extends AppCompatActivity implements View.OnClick
         }
 
     }
-
-    //@Override
-    //public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-      //  if (position == 0){
-
-        //} else {
-          //  startActivity(new Intent(CountListActivity.this, CountListMesinActivity.class));
-        //}
-
-    //}
-
-    //@Override
-    //public void onNothingSelected(AdapterView<?> parent) {
-
-    //}
 
     @Override
     public void onBackPressed() {

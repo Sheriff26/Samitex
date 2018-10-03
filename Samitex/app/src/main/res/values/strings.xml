@@ -1,7 +1,3 @@
 <resources>
     <string name="app_name">Samitex</string>
-    <string-array name="Spinner">
-        <item>Tanggal</item>
-        <item>Mesin</item>
-    </string-array>
 </resources>
