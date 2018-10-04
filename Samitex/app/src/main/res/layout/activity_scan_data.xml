@@ -200,7 +200,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round"
-                    android:inputType="numberDecimal"
+                    android:inputType="number"
                     android:padding="12dp"
                     android:singleLine="true"
                     android:textSize="30sp"
