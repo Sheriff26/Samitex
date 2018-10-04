@@ -56,8 +56,8 @@ public class KonfirmasiActivity extends AppCompatActivity implements View.OnClic
         Catatan = getIntent().getExtras().getString("Catatan");
 
         tvMesin.setText(Mesin);
-        tvTanggalShift.setText(Tanggal + " / " +Shift);
-        tvGroupOperator.setText(Group + " - " +Operator);
+        tvTanggalShift.setText(Tanggal+ " / " +Shift);
+        tvGroupOperator.setText(Group+ " - " +Operator);
         tvCounter.setText(Counter);
         tvCatatan.setText(Catatan);
 

@@ -6,7 +6,6 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,7 +20,6 @@ import android.widget.ImageView;
 import com.google.zxing.integration.android.IntentIntegrator;
 
 import java.io.ByteArrayOutputStream;
-import java.io.Serializable;
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -64,13 +62,13 @@ public class ScanDataActivity extends AppCompatActivity implements View.OnClickL
         imgScanner.setOnClickListener(this);
         btnTakePicture = findViewById(R.id.img_btn_take_photo);
         btnTakePicture.setOnClickListener(this);
+        tampilFoto = findViewById(R.id.tampil_foto);
+
         btnSimpanData = findViewById(R.id.btn_simpan_data);
         btnSimpanData.setOnClickListener(this);
-        tampilFoto = findViewById(R.id.tampil_foto);
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -79,6 +77,9 @@ public class ScanDataActivity extends AppCompatActivity implements View.OnClickL
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             tampilFoto.setImageBitmap(imageBitmap);
+            ByteArrayOutputStream bs = new ByteArrayOutputStream();
+            imageBitmap.compress(Bitmap.CompressFormat.PNG,50,bs);
+
         }
 
     }
@@ -163,9 +164,6 @@ public class ScanDataActivity extends AppCompatActivity implements View.OnClickL
                 simpanDataIntent.putExtra("Counter", Counter);
                 simpanDataIntent.putExtra("Catatan", Catatan);
 
-                //ByteArrayOutputStream bs = new ByteArrayOutputStream();
-                //compress(Bitmap.CompressFormat.PNG,50,bs);
-                //simpanDataIntent.putExtra("ImageBitmap", bs.toByteArray());
                 startActivity(simpanDataIntent);
                 break;
         }
