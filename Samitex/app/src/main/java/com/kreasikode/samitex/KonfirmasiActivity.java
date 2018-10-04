@@ -55,6 +55,9 @@ public class KonfirmasiActivity extends AppCompatActivity implements View.OnClic
         Counter = getIntent().getExtras().getString("Counter");
         Catatan = getIntent().getExtras().getString("Catatan");
 
+        Bitmap bitmap = (Bitmap) getIntent().getParcelableExtra("data");
+        konfirmFoto.setImageBitmap(bitmap);
+
         tvMesin.setText(Mesin);
         tvTanggalShift.setText(Tanggal+ " / " +Shift);
         tvGroupOperator.setText(Group+ " - " +Operator);

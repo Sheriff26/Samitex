@@ -38,6 +38,7 @@ public class ScanDataActivity extends AppCompatActivity implements View.OnClickL
     private ImageView tampilFoto;
     private ImageButton btnTakePicture;
     private Button btnSimpanData;
+    private Bitmap bitMap;
 
     static final int REQUEST_IMAGE_CAPTURE = 26;
 
@@ -79,9 +80,8 @@ public class ScanDataActivity extends AppCompatActivity implements View.OnClickL
             tampilFoto.setImageBitmap(imageBitmap);
             ByteArrayOutputStream bs = new ByteArrayOutputStream();
             imageBitmap.compress(Bitmap.CompressFormat.PNG,50,bs);
-
+            bitMap = imageBitmap;
         }
-
     }
 
     public static class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener{
@@ -118,6 +118,17 @@ public class ScanDataActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.back_icon:
+                Intent backDashboardIntent = new Intent(ScanDataActivity.this, DashboardActivity.class);
+                backDashboardIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(backDashboardIntent);
+                break;
+
+            case R.id.et_tanggal:
+                DialogFragment dFragment = new DatePickerFragment();
+                dFragment.show(getFragmentManager(), "Date Picker");
+                break;
+
             case R.id.img_scanner:
                 IntentIntegrator scannerIntegrator = new IntentIntegrator(ScanDataActivity.this);
                 scannerIntegrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
@@ -128,22 +139,11 @@ public class ScanDataActivity extends AppCompatActivity implements View.OnClickL
                 scannerIntegrator.initiateScan();
                 break;
 
-            case R.id.back_icon:
-                Intent backDashboardIntent = new Intent(ScanDataActivity.this, DashboardActivity.class);
-                backDashboardIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(backDashboardIntent);
-                break;
-
             case R.id.img_btn_take_photo:
                 Intent takePhotoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 if (takePhotoIntent.resolveActivity(getPackageManager()) != null) {
                     startActivityForResult(takePhotoIntent, REQUEST_IMAGE_CAPTURE);
                 }
-                break;
-
-            case R.id.et_tanggal:
-                DialogFragment dFragment = new DatePickerFragment();
-                dFragment.show(getFragmentManager(), "Date Picker");
                 break;
 
             case R.id.btn_simpan_data:
@@ -163,7 +163,7 @@ public class ScanDataActivity extends AppCompatActivity implements View.OnClickL
                 simpanDataIntent.putExtra("Mesin", Mesin);
                 simpanDataIntent.putExtra("Counter", Counter);
                 simpanDataIntent.putExtra("Catatan", Catatan);
-
+                simpanDataIntent.putExtra("data", bitMap);
                 startActivity(simpanDataIntent);
                 break;
         }
